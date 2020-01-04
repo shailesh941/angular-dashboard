@@ -1,0 +1,22 @@
+.header{
+    width: 100%;
+    min-height: 50px;
+    border-bottom: 1px solid #ccc;
+    position: fixed;
+    left: 0px;
+    height: 0px;
+    background: #fff;
+}
+.user-menu{
+    padding:0px;
+    margin: 0px;
+    margin-top: 10px;
+}
+.user-menu  li{
+    display: inline-block;
+}
+.user-menu  li a{
+    cursor: pointer;
+    padding: 5px 13px;
+    display: block;
+}

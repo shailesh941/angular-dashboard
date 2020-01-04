@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CoreComponent } from './core/core.component';
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { SideBarComponent } from './core/side-bar/side-bar.component';
@@ -11,7 +10,6 @@ import { SideBarComponent } from './core/side-bar/side-bar.component';
 @NgModule({
   declarations: [
     AppComponent,
-    CoreComponent,
     HeaderComponent,
     FooterComponent,
     SideBarComponent

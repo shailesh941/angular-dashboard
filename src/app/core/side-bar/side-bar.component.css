@@ -25,8 +25,9 @@
     z-index: 999;
     text-align: center;
     top: 5px;
-    padding-top: 6px;
+    padding-top: 8px;
     cursor: pointer;
+    font-size: 17px;
 }
 .side-menu-list{
     padding: 0px;
@@ -39,7 +40,15 @@
     position: relative;
 }
 .side-menu.smallmenu > .side-menu-list > li{
+    min-width: 40px;
+    overflow: hidden;
+}
+.side-menu.smallmenu > .side-menu-list > li:hover{
+    overflow: visible;
     min-width: 180px;
+}
+.side-menu.smallmenu > .side-menu-list > li::after{
+    display: none;
 }
 .side-menu-list > li >a {
     display: block;
@@ -49,6 +58,7 @@
     font-size: 12px;
     text-transform: uppercase;
     padding-left: 40px;
+    white-space: nowrap;
 }
 .side-menu-list > li >a > .menu-icons{
     position: absolute;
