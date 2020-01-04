@@ -7,9 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideBarComponent implements OnInit {
 
+  toggleMenu = 0;
+  smallMenuBox:boolean=false;
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  menuOpen(event){
+    if(this.toggleMenu == event){
+      this.toggleMenu = 0;
+    }else{
+      this.toggleMenu = event;
+    }
+  }
+  smallMenu(){
+    this.toggleMenu = 0;
+    this.smallMenuBox = !this.smallMenuBox;
+  }
+
+
 
 }

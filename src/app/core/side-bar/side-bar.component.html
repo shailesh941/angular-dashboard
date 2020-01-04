@@ -1,1 +1,26 @@
-<p>side-bar works!</p>
+<div class="side-menu" [ngClass]="{'smallmenu': smallMenuBox === true}">
+    <span class="humburg" (click)="smallMenu(event)">
+            <i class="fa fa-bars"></i>
+    </span>
+    <div class="logo-box">
+        <img class="img-fluid" src="../../../assets/images/angular.png" >
+    </div>
+    <ul class="side-menu-list">
+        <li><a href="#"><span class="menu-icons"><i class="fa fa-tachometer"></i></span>Dashboard</a></li>
+        <li><a href="#"><span class="menu-icons"><i class="fa fa-home"></i></span>About Us</a></li>
+        <li><a href="#"><span class="menu-icons"><i class="fa fa-pencil-square"></i></span>Contact Us</a></li>
+        <li><a href="#"><span class="menu-icons"><i class="fa fa-area-chart"></i></span>Chart Box</a></li>
+        <li><a href="#"><span class="menu-icons"><i class="fa fa-th"></i></span>Grig System</a></li>
+        <li><a href="#"><span class="menu-icons"><i class="fa fa-file-text"></i></span>Contact Form</a></li>
+        <li class="sub-menu" [ngClass]="{'active': toggleMenu == 1}">
+            <a (click)="menuOpen(1)" ><span class="menu-icons"><i class="fa fa-table"></i></span>Native Form</a>
+            <ul class="sub-menu-list">
+                <li><a href="#">Native Form 1</a></li>
+                <li><a href="#">Native Form 1</a></li>
+                <li><a href="#">Native Form 1</a></li>
+                <li><a href="#">Native Form 1</a></li>
+            </ul>
+        </li>
+    </ul>
+
+</div>

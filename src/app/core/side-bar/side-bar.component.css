@@ -1,0 +1,115 @@
+.side-menu{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    max-width: 180px;
+    background: #000;
+    padding:0px;
+    height: 100%;
+}
+.side-menu.smallmenu{
+    max-width: 40px;
+}
+.logo-box{
+    width: 100%;
+    height: 49px;
+    background: #fff;
+    padding: 7px;
+}
+.humburg{
+    position: absolute;
+    right: -40px;
+    height: 40px;
+    width: 40px;
+    z-index: 999;
+    text-align: center;
+    top: 5px;
+    padding-top: 6px;
+    cursor: pointer;
+}
+.side-menu-list{
+    padding: 0px;
+    margin: 0px;
+    margin-top: 30px;
+}
+.side-menu-list > li{
+    display: block;
+    width: 100%;
+    position: relative;
+}
+.side-menu.smallmenu > .side-menu-list > li{
+    min-width: 180px;
+}
+.side-menu-list > li >a {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding-left: 40px;
+}
+.side-menu-list > li >a > .menu-icons{
+    position: absolute;
+    left: 10px;
+    top: 6px;
+    font-size: 16px;
+}
+.side-menu-list > li:hover >a, .side-menu-list > li.active >a{
+    background: #d63b02;
+    text-decoration: none;
+}
+.side-menu-list > li >ul{
+    padding-left: 40px;
+    margin: 0px;
+    width: 100%;
+    position: relative;
+    background:#2e2d2d;
+    display: none;
+}
+.side-menu-list > li.sub-menu::after{
+    position: absolute;
+    right: 8px;
+    top: 10px;
+    width: 15px;
+    height: 15px;
+    font: normal normal normal 17px/1 FontAwesome;
+    display: block;
+    content: "\f107";
+    color: #fff;
+    text-align: center;
+}
+.side-menu-list > li.sub-menu.active::after{
+    content: "\f106";
+}
+.side-menu-list > li.active >ul{
+    display: block;
+}
+.side-menu.smallmenu > .side-menu-list > li:hover > ul.sub-menu-list{
+    display: block;
+    position: absolute;
+    top: 38px;
+    left: 41px;
+    padding-left: 14px;
+    max-width: 139px;
+}
+.side-menu-list > li.sub-menu >a{
+    cursor: pointer;
+}
+.side-menu-list > li >ul >li{
+    display: block;
+    width: 100%;
+}
+.side-menu-list > li >ul >li > a {
+    display: block;
+    width: 100%;
+    padding: 7px;
+    color: #fff;
+    font-size: 12px;
+    padding-left: 0px;
+}
+.side-menu-list > li >ul >li > a:hover{
+    color: #d63b02;
+    text-decoration: none;
+}
