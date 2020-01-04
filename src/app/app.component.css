@@ -1,0 +1,13 @@
+.header{
+    width: 100%;
+    min-height: 50px;
+    border-bottom: 1px solid #ccc;
+    position: fixed;
+    left: 0px;
+    height: 0px;
+}
+.main-section{
+    padding-left: 180px;
+    padding-top: 60px;
+    min-height: calc(100vh - 40px);
+}
