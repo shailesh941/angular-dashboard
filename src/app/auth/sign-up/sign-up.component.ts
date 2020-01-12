@@ -16,7 +16,7 @@ export class SignUpComponent implements OnInit {
     private auth: AuthService) {
     this.form = fb.group({
       email: ['test@test.com', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+      password: ['123456', Validators.required]
     });
   }
   ngOnInit() {
