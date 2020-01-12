@@ -6,6 +6,10 @@
     left: 0px;
     height: 0px;
     background: #fff;
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(214,211,214,1);
+    -moz-box-shadow: 0px 0px 8px 0px rgba(214,211,214,1);
+    box-shadow: 0px 0px 8px 0px rgba(214,211,214,1);
+    z-index: 1000;
 }
 .user-menu{
     padding:0px;

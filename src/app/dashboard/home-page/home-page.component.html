@@ -1,0 +1,106 @@
+<div class="row mr-0 pt-3 text-right">
+    <div class="col pr-2">
+        <div class="widget-box">
+            <span class="widget-icons twitter"><i class="fa fa-twitter"></i></span>
+            <h4>Titter</h4>
+            <p>200</p>
+        </div>
+    </div>
+    <div class="col pl-2 pr-2">
+        <div class="widget-box">
+            <span class="widget-icons facebook"><i class="fa fa-facebook"></i></span>
+            <h4>Facebook</h4>
+            <p>200</p>
+        </div>
+    </div>
+    <div class="col pl-2 pr-2">
+        <div class="widget-box">
+            <span class="widget-icons google"><i class="fa fa-google-plus"></i></span>
+            <h4>Google+</h4>
+            <p>200</p>
+        </div>
+    </div>
+    <div class="col pl-2 pr-2">
+        <div class="widget-box">
+            <span class="widget-icons whatsapp"><i class="fa fa-whatsapp"></i></span>
+            <h4>Whatsapp</h4>
+            <p>200</p>
+        </div>
+    </div>
+    <div class="col pl-2 pr-2">
+        <div class="widget-box">
+            <span class="widget-icons linkedin"><i class="fa fa-linkedin"></i></span>
+            <h4>Linkedin</h4>
+            <p>200</p>
+        </div>
+    </div>
+    <div class="col pl-2">
+        <div class="widget-box">
+            <span class="widget-icons snapchat"><i class="fa fa-snapchat-ghost"></i></span>
+            <h4>Snapchat</h4>
+            <p>200</p>
+        </div>
+    </div>
+</div>
+<div class="row mr-0 pt-3 mt-4">
+    <div class="col pr-2">
+        <div class="widget-box pt-5">
+            <div class="widget-lable twitter"><h5>Bar Chart</h5></div>
+            <div style="display: block">
+                <canvas baseChart
+                  [datasets]="barChartData"
+                  [labels]="barChartLabels"
+                  [options]="barChartOptions"
+                  [plugins]="barChartPlugins"
+                  [legend]="barChartLegend"
+                  [chartType]="barChartType">
+                </canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col pl-2">
+        <div class="widget-box pt-5">
+            <div class="widget-lable google"><h5>Line Chart</h5></div>
+            <div style="display: block;">
+                <canvas baseChart
+                    [datasets]="lineChartData"
+                    [labels]="lineChartLabels"
+                    [options]="lineChartOptions"
+                    [colors]="lineChartColors"
+                    [legend]="lineChartLegend"
+                    [chartType]="lineChartType">
+                </canvas>
+                </div>
+        </div>
+    </div>
+</div>
+<div class="row mr-0 pt-3 mt-4">
+    <div class="col pr-2">
+        <div class="widget-box pt-5">
+            <div class="widget-lable whatsapp"><h5>Doughnut Chart</h5></div>
+            <div style="display: block">
+                <canvas baseChart
+                  [data]="doughnutChartData"
+                  [labels]="doughnutChartLabels"
+                  [chartType]="doughnutChartType">
+                </canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col pl-2">
+        <div class="widget-box pt-5">
+            <div class="widget-lable facebook"><h5>Pie Chart</h5></div>
+            <div class="d-block">
+                <canvas baseChart
+                    [data]="pieChartData"
+                    [labels]="pieChartLabels"
+                    [chartType]="pieChartType"
+                    [options]="pieChartOptions"
+                    [plugins]="pieChartPlugins"
+                    [colors]="pieChartColors"
+                    [legend]="pieChartLegend">
+                </canvas>
+            </div>
+        </div>
+    </div>
+</div>

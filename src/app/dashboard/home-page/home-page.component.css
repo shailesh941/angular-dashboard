@@ -1,0 +1,74 @@
+.widget-box{
+    background: #ffffff;
+    min-height: 50px;
+    width: 100%;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(214,211,214,1);
+    -moz-box-shadow: 0px 0px 8px 0px rgba(214,211,214,1);
+    box-shadow: 0px 0px 8px 0px rgba(214,211,214,1);
+    padding: 10px;
+    position: relative;
+}
+.widget-box .widget-icons{
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 10px;
+    top: -10px;
+    text-align: center;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 22px;
+    padding-top: 4px;
+}
+.widget-box h4{
+    margin-top: 0px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #242424;
+    margin-bottom: 0px;
+}
+.widget-box h5{
+    margin-top: 0px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+.widget-box p{
+    margin-bottom: 0px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #6b6b6b;
+}
+.widget-lable{
+    width: calc(100% - 30px);
+    min-height: 45px;
+    border-radius: 4px;
+    position: absolute;
+    left: 15px;
+    top: -15px;
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(214,211,214,1);
+    -moz-box-shadow: 0px 0px 8px 0px rgba(214,211,214,1);
+    box-shadow: 0px 0px 8px 0px rgba(214,211,214,1);
+    padding: 10px 15px;
+    color: #ffffff;
+}
+.twitter{
+    background: #43bceb;
+}
+.facebook{
+    background: #4268b3;
+}
+.google{
+    background: #dc4335;
+}
+.whatsapp{
+    background: #0dc243;
+}
+.linkedin{
+    background: #0177b5;
+}
+.snapchat{
+    background: #f6e51b;
+}

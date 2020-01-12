@@ -1,10 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<app-header></app-header>
-<app-side-bar></app-side-bar>
-<section class="main-section">
+<app-header *ngIf="!showHead"></app-header>
+<app-side-bar *ngIf="!showHead"></app-side-bar>
+<section class="main-section" [ngClass]="{'p-0': showHead}">
     <router-outlet></router-outlet>
 </section>
-<footer>
+<footer *ngIf="!showHead">
     <app-footer></app-footer>
 </footer>
