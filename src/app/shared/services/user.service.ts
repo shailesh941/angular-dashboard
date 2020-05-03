@@ -13,8 +13,12 @@ export class UserService {
         return this.http.get<User[]>(`${environment.apiUrl}/products/alllist`);
     }
 
-    getById(id: number) {
-        return this.http.get(`/users/` + id);
+    getUserDetails() {
+        return this.http.get<User[]>(`${environment.apiUrl}/user/details`);
+    }
+
+    getById(id: string) {
+        return this.http.get(`${environment.apiUrl}/user/` + id);
     }
 
     getFilterData(data) {

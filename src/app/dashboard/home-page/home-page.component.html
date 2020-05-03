@@ -104,3 +104,34 @@
         </div>
     </div>
 </div>
+<div class="row mr-0 pt-3 mt-4">
+    <div class="col-12">
+        <div class="widget-box pt-5">
+            <div class="widget-lable whatsapp"><h5>User List</h5></div>
+            <div style="display: block">
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Product Code</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Product Price</th>
+                        <th scope="col">Product Dicripaton</th>
+                        <th scope="col">Updated</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of users">
+                       <td>{{item._id}}</td>
+                       <td>{{item.product_code}}</td>
+                       <td>{{item.product_name}}</td>
+                       <td>{{item.product_price}}</td>
+                       <td>{{item.product_dicripaton}}</td>
+                       <td>{{item.updated_at}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</div>
