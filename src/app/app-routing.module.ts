@@ -4,7 +4,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AuthModule } from './auth/auth.module';
-import { AuthGuard } from './service/auth.guard';
+import { AuthGuard } from './shared/services/auth.guard';
 
 
 const routes: Routes = [

@@ -1,6 +1,6 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { Router, ActivatedRoute, NavigationStart, NavigationEnd  } from '@angular/router';
-import { AuthService } from './service/authservice';
+import { AuthenticationService } from './shared/services/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -11,22 +11,22 @@ export class AppComponent implements OnInit{
   title = 'angular-dashboard';
   showHead: boolean = false;
 
-  constructor(private route:ActivatedRoute, router: Router, private zone: NgZone, private auth: AuthService) {
+  constructor(private route:ActivatedRoute, router: Router, private zone: NgZone, private auth: AuthenticationService) {
    
-   router.events.subscribe((event: any) => {
-      if (event instanceof NavigationStart) {
-        if (event['url'] == '/login' || event['url'] == '/sign-up') {
-          this.showHead= true;
-        } else {
-          this.showHead= false;
-        }
-      }
-    });
+  //  router.events.subscribe((event: any) => {
+  //     if (event instanceof NavigationStart) {
+  //       if (event['url'] == '/login' || event['url'] == '/sign-up') {
+  //         this.showHead= true;
+  //       } else {
+  //         this.showHead= false;
+  //       }
+  //     }
+  //   });
 
   }
 
   ngOnInit() {
-    console.log('Local', this.auth.getToken())
+    //console.log('Local', this.auth.getToken())
   }
   
 

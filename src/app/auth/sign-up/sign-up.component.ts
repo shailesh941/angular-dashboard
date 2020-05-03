@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/service/authservice';
+import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -13,7 +13,7 @@ export class SignUpComponent implements OnInit {
   form : FormGroup;
   constructor(private fb: FormBuilder,
     private myRoute: Router,
-    private auth: AuthService) {
+    private auth: AuthenticationService) {
     this.form = fb.group({
       email: ['test@test.com', [Validators.required, Validators.email]],
       password: ['123456', Validators.required]
@@ -22,10 +22,10 @@ export class SignUpComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
-    if (this.form.valid) {
-      this.auth.sendToken(this.form.value.email)
-      this.myRoute.navigate(["dashboard"]);
-    }
-  }
+  // onSubmit() {
+  //   if (this.form.valid) {
+  //     this.auth.sendToken(this.form.value.email)
+  //     this.myRoute.navigate(["dashboard"]);
+  //   }
+  // }
 }

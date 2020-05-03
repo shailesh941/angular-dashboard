@@ -4,8 +4,9 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from '../service/authservice';
-import { AuthGuard } from '../service/auth.guard';
+import { AuthGuard } from '../shared/services/auth.guard';
+import { SharedModule } from '../shared/shared.module';
+import { AuthenticationService } from '../shared/services/authentication.service';
 
 
 
@@ -15,8 +16,9 @@ import { AuthGuard } from '../service/auth.guard';
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    SharedModule,
   ],
-  providers: [AuthService,AuthGuard]
+  providers: [AuthenticationService,AuthGuard]
 })
 export class AuthModule { }
