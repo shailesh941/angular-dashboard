@@ -26,6 +26,10 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit() {
+    let userdata = localStorage.getItem('currentUser');
+    if(userdata != null){
+      this.route.snapshot.queryParams['dashboard'] || '/dashboard'
+    }
     //console.log('Local', this.auth.getToken())
   }
   

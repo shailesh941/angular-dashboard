@@ -16,8 +16,7 @@ import { AuthenticationService } from '../shared/services/authentication.service
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
-    FormsModule,
-    SharedModule,
+    FormsModule
   ],
   providers: [AuthenticationService,AuthGuard]
 })

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Color, BaseChartDirective, Label, MultiDataSet } from 'ng2-charts';
+import { UserService } from 'src/app/shared/services/user.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home-page',
@@ -8,6 +10,7 @@ import { Color, BaseChartDirective, Label, MultiDataSet } from 'ng2-charts';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
+  users:any;
   // Bar Chart Start
   barChartOptions: ChartOptions = {
     responsive: true,
@@ -137,9 +140,19 @@ export class HomePageComponent implements OnInit {
     },
   ];
 
-  constructor() { }
+  constructor( private userService: UserService) { }
 
   ngOnInit() {
+    this.getUserData();
   }
+
+  getUserData(){
+    this.userService.getAll().pipe(first()).subscribe(users => { 
+      this.users = users;
+      console.log(this.users); 
+  });
+  }
+
+
 
 }
