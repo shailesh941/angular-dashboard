@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
     if(currentUser != null && currentUser.token){
       let decoded = jwt_decode(currentUser.token);
       this.userData = decoded;
+      console.log(this.userData)
       this.getUserData();
     }
     

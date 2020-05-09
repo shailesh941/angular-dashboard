@@ -2,9 +2,9 @@
     <div class="row ml-0 mr-0">
     <div class="col"></div>
     <div class="col text-right">
-        <ul class="user-menu">
+        <ul class="user-menu" *ngIf="userData != null">
             <li>
-                <a>Welcome, <strong>{{userData.email}}</strong></a>
+                <a>Welcome, <strong>{{userData.firstName}} {{userData.lastName}}</strong></a>
             </li>
             <li class="border-left text-primary" (click)="logout()">
                     <a><i class="fa fa-sign-out"></i> SignOut</a>
