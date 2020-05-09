@@ -16,20 +16,20 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    let decoded = jwt_decode(currentUser.token);
-    this.userData = decoded;
-    console.log(decoded);
-    this.getUserData();
+    if(currentUser != null && currentUser.token){
+      let decoded = jwt_decode(currentUser.token);
+      this.userData = decoded;
+      this.getUserData();
+    }
+    
 
   }
   logout(){
-    console.log('hello');
     this.auth.logout();
   }
   getUserData(){
       this.userService.getById(this.userData.userId).pipe(first()).subscribe(users => { 
         this.userDetails = users;
-        console.log(this.userDetails); 
     });
   }
 
