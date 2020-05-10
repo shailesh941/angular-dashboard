@@ -9,10 +9,7 @@ import{ environment } from '../../../environments/environment'
 export class UserService {
     constructor(private http: HttpClient) { }
 
-    getAll() {
-        return this.http.get<User[]>(`${environment.apiUrl}/products/alllist`);
-    }
-
+    
     getUserDetails() {
         return this.http.get<User[]>(`${environment.apiUrl}/user/details`);
     }
@@ -20,14 +17,18 @@ export class UserService {
     getById(id: string) {
         return this.http.get(`${environment.apiUrl}/user/` + id);
     }
-
-    getFilterData(data) {
-        return this.http.post(`${environment.apiUrl}/products/list`, data);
-    }
-
+    
     register(user) {
         return this.http.post(`${environment.apiUrl}/user/signup`, user);
     }
+
+    addProduct(data) {
+        return this.http.post(`${environment.apiUrl}/products/add`, data);
+    }
+    getAllProduct() {
+        return this.http.get<User[]>(`${environment.apiUrl}/products/list`);
+    }
+
 
     update(user: User) {
         return this.http.put(`/users/` + user.id, user);

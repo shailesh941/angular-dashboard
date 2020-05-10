@@ -22,7 +22,7 @@ import { AuthModule } from './auth/auth.module';
     AppRoutingModule,
     DashboardModule,
     SharedModule,
-    AuthModule
+    AuthModule,
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

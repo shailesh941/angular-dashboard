@@ -147,7 +147,7 @@ export class HomePageComponent implements OnInit {
   }
 
   getUserData(){
-    this.userService.getAll().pipe(first()).subscribe(users => { 
+    this.userService.getAllProduct().subscribe(users => { 
       this.users = users;
       console.log(this.users); 
   });
