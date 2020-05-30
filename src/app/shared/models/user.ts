@@ -5,4 +5,5 @@ export class User {
     dateDob:string;
     email: string;
     password: string;
+    avatar: string;
 }

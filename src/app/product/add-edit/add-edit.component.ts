@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, AbstractControl, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/shared/services/user.service';
 import { first } from 'rxjs/operators';
-import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
-
-const URL = 'http://localhost:8080/api/upload';
+import { HttpEvent, HttpEventType } from '@angular/common/http';
+import { ProductService } from 'src/app/shared/services/product.service';
+import { DocumentService } from 'src/app/shared/services/document.service';
 
 @Component({
   selector: 'app-add-edit',
@@ -15,17 +14,16 @@ const URL = 'http://localhost:8080/api/upload';
 export class AddEditComponent implements OnInit {
   submitted = false;
   productForm : FormGroup;
+  form: FormGroup;
   error: any;
-
-  public uploader: FileUploader = new FileUploader({
-    url: URL,
-    itemAlias: 'image'
-  });
-  
+  preview: string;
+  percentDone: any = 0;
 
   constructor(private fb: FormBuilder,
     private router: Router,
-    public userService:UserService,
+    public productService:ProductService,
+    public documentService:DocumentService,
+    private cd: ChangeDetectorRef
     ) { }
 
   ngOnInit() {
@@ -37,12 +35,12 @@ export class AddEditComponent implements OnInit {
       product_imges: [null]
     });
 
-    this.uploader.onAfterAddingFile = (file) => {
-        file.withCredentials = false;
-      };
-      this.uploader.onCompleteItem = (item: any, status: any) => {
-        console.log('Uploaded File Details:', item);
-      };
+    this.form = this.fb.group({
+      name: [''],
+      price: [''],
+      avatar: [null]
+    })
+
 
   }
 
@@ -54,22 +52,100 @@ export class AddEditComponent implements OnInit {
     if (this.productForm.invalid) {
         return;
     }
-    
-    this.userService.addProduct(this.productForm.value).subscribe(res => {
-          console.log(res); 
-        //this.router.navigate(['/login']);
+
+    this.productService.addProduct(this.productForm.value).subscribe(res => {
+      console.log(res);
     },
     error => {
         this.error = error;
         //this.loading = false;
     });
     
+    // this.productService.addProduct(this.productForm.value).subscribe((event: HttpEvent<any>) => {
+    //   switch (event.type) {
+    //     case HttpEventType.Sent:
+    //       console.log('Request has been made!');
+    //       break;
+    //     case HttpEventType.ResponseHeader:
+    //       console.log('Response header has been received!');
+    //       break;
+    //     case HttpEventType.UploadProgress:
+    //       this.percentDone = Math.round(event.loaded / event.total * 100);
+    //       console.log(`Uploaded! ${this.percentDone}%`);
+    //       break;
+    //     case HttpEventType.Response:
+    //       console.log('User successfully created!', event.body);
+    //       //this.percentDone = false;
+    //       this.router.navigate(['users-list'])
+    //   }
+    // },
+    // error => {
+    //     this.error = error;
+    //     //this.loading = false;
+    // });
+    
   }
 
-  // onFileChange(event) {
-  //   this.myFiles.push(event.target.files);
-  //   console.log(event.target.files);
-  // }
+  onFileChange(event) {
+    const reader = new FileReader();
+ 
+    if(event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsDataURL(file);
+  
+      reader.onload = () => {
+        this.productForm.patchValue({
+          product_imges: reader.result
+       });
+      
+        // need to run CD since file load runs outside of zone
+        this.cd.markForCheck();
+      };
+    }
+  }
+
+  uploadFile(event) {
+    const file = (event.target as HTMLInputElement).files[0];
+    this.form.patchValue({
+      avatar: file
+    });
+    this.form.get('avatar').updateValueAndValidity()
+
+    // File Preview
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.preview = reader.result as string;
+    }
+    reader.readAsDataURL(file)
+  }
+
+  submitForm() {
+    let formdata = this.form.value
+
+    this.documentService.addUser(formdata,
+      this.form.value.avatar
+    ).subscribe((event: HttpEvent<any>) => {
+      switch (event.type) {
+        case HttpEventType.Sent:
+          console.log('Request has been made!');
+          break;
+        case HttpEventType.ResponseHeader:
+          console.log('Response header has been received!');
+          break;
+        case HttpEventType.UploadProgress:
+          this.percentDone = Math.round(event.loaded / event.total * 100);
+          console.log(`Uploaded! ${this.percentDone}%`);
+          break;
+        case HttpEventType.Response:
+          console.log('User successfully created!', event.body);
+          this.percentDone = false;
+          //this.router.navigate(['users-list'])
+      }
+    })
+  }
+
+
+
 
 
 
