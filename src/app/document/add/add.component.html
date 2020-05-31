@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col pl-0 pt-2 pb-2">
+            <h5 class="page-titel">Add Document</h5>
+        </div>
+        <div class="col pr-0 pt-2 pb-2 text-right">
+            <!-- <button type="button" routerLink="/product/add" class="btn btn-primary btn-sm">Add Product</button> -->
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-5 p-2">
+            <div class="white-bg p-3">
+                <form [formGroup]="form" (ngSubmit)="submitForm()">
+                    <!-- Progress Bar -->
+                    <div class="progress form-group" *ngIf="documentService.percentDone">
+                      <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                        [style.width.%]="documentService.percentDone">
+                      </div>
+                    </div>
+                  
+                    <!-- Image Preview -->
+                    <div class="form-group">
+                      <div class="preview" *ngIf="preview && preview !== null">
+                        <img [src]="preview" [alt]="form.value.name">
+                      </div>
+                    </div>
+                  
+                    <!-- File Input -->
+                    <div class="form-group">
+                      <input type="file" (change)="uploadFile($event)">
+                    </div>
+                  
+                    <!-- Name -->
+                    <div class="form-group input-group-lg">
+                      <input class="form-control" placeholder="Name" formControlName="name">
+                    </div>
+                    <div class="form-group input-group-lg">
+                        <input class="form-control" placeholder="Price" formControlName="price">
+                      </div>
+                  
+                    <!-- Submit -->
+                    <div class="form-group">
+                      <button class="btn btn-danger btn-block btn-lg">Create User</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-7 p-2">
+            <div class="white-bg p-3">
+            </div>
+        </div>
+    </div>
+</div>

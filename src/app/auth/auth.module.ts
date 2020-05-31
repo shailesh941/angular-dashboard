@@ -7,11 +7,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from '../shared/services/auth.guard';
 import { SharedModule } from '../shared/shared.module';
 import { AuthenticationService } from '../shared/services/authentication.service';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { ContactListComponent } from './contact-list/contact-list.component';
 
 
 
 @NgModule({
-  declarations: [LoginComponent, SignUpComponent],
+  declarations: [LoginComponent, SignUpComponent, ContactUsComponent, ContactListComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,

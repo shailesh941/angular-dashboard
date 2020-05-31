@@ -27,9 +27,7 @@ export class UserService {
         console.log('Servicedat', data)
         return this.http.post(`${environment.apiUrl}/products/add`, data);
     }
-    getAllProduct() {
-        return this.http.get<User[]>(`${environment.apiUrl}/products/list`);
-    }
+    
 
 
     update(user: User) {

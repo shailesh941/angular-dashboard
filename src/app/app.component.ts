@@ -11,17 +11,20 @@ export class AppComponent implements OnInit{
   title = 'angular-dashboard';
   showHead: boolean = false;
 
-  constructor(private route:ActivatedRoute, router: Router, private zone: NgZone, private auth: AuthenticationService) {
-   
-   router.events.subscribe((event: any) => {
-      if (event instanceof NavigationStart) {
-        if (event['url'] == '/login' || event['url'] == '/sign-up') {
-          this.showHead= true;
-        } else {
-          this.showHead= false;
-        }
-      }
-    });
+  constructor(
+    private route:ActivatedRoute, 
+    private router: Router, 
+    private zone: NgZone, 
+    private auth: AuthenticationService){
+      router.events.subscribe((event: any) => {
+          if (event instanceof NavigationStart) {
+            if (event['url'] == '/user/login' || event['url'] == '/user/sign-up') {
+              this.showHead= true;
+            } else {
+              this.showHead= false;
+            }
+          }
+        });
 
   }
 

@@ -3,6 +3,7 @@ import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Color, BaseChartDirective, Label, MultiDataSet } from 'ng2-charts';
 import { UserService } from 'src/app/shared/services/user.service';
 import { first } from 'rxjs/operators';
+import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
   selector: 'app-home-page',
@@ -140,14 +141,14 @@ export class HomePageComponent implements OnInit {
     },
   ];
 
-  constructor( private userService: UserService) { }
+  constructor( private productService: ProductService) { }
 
   ngOnInit() {
     this.getUserData();
   }
 
   getUserData(){
-    this.userService.getAllProduct().subscribe(users => { 
+    this.productService.getAllProduct().subscribe(users => { 
       this.users = users;
       console.log(this.users); 
   });

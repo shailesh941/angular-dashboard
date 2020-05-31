@@ -12,16 +12,16 @@
         <div class="col-12 white-bg p-0">
             <table class="table table-striped">
                 <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Code</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Dicripaton</th>
-                    <th scope="col">Imges</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Action</th>
-                </tr>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Code</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Dicripaton</th>
+                        <th scope="col">Imges</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Action</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let item of productList">
@@ -30,9 +30,9 @@
                         <td>{{item.product_code}}</td>
                         <td>{{item.product_price}}</td>
                         <td>{{item.product_dicripaton}}</td>
-                        <td><img width="40" height="40" src="{{'http://localhost:3000/' + item.product_imges}}"></td>
+                        <td><img width="40" height="40" src="{{item.product_imges}}"></td>
                         <td>{{item.updated_at}}</td>
-                        <td><button>Edit</button> <button>Delete</button></td>
+                        <td><button [routerLink]="['/product/edit', item._id]">Edit</button> <button>Delete</button></td>
                     </tr>
                 </tbody>
             </table>

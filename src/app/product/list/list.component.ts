@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/shared/services/user.service';
+import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
   selector: 'app-list',
@@ -12,14 +12,14 @@ export class ListComponent implements OnInit {
   productList:any;
 
   constructor(private router: Router,
-    public userService:UserService,) { }
+    public productService:ProductService,) { }
 
   ngOnInit() {
     this.getUserData();
   }
 
   getUserData(){
-    this.userService.getAllProduct().subscribe(product => { 
+    this.productService.getAllProduct().subscribe(product => { 
       this.productList = product;
       console.log(this.productList);
     });

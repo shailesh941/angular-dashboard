@@ -9,8 +9,9 @@ import { AuthGuard } from './shared/services/auth.guard';
 
 
 const routes: Routes = [
-  { path: 'login', component:  LoginComponent},
-  { path: 'sign-up', component:  SignUpComponent},
+  { path: 'user',
+    loadChildren: './auth/auth.module#AuthModule'
+  },
   { path: 'dashboard',
     loadChildren: './dashboard/dashboard.module#DashboardModule',
     canActivate:[AuthGuard]
@@ -19,7 +20,11 @@ const routes: Routes = [
     loadChildren: './product/product.module#ProductModule', 
     canActivate:[AuthGuard]
   },
-  { path: '',   redirectTo: '/login', pathMatch: 'full' }
+  { path: 'document', 
+    loadChildren: './document/document.module#DocumentModule', 
+    canActivate:[AuthGuard]
+  },
+  { path: '',   redirectTo: '/user/login', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col pl-0 pt-2 pb-2">
+            <h5 class="page-titel">Document List</h5>
+        </div>
+        <div class="col pr-0 pt-2 pb-2 text-right">
+            <button type="button" routerLink="/user/contact-us" class="btn btn-primary btn-sm">Add Document</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 white-bg p-0">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Mobile</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">State</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Pin No</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of documentList">
+                        <td>{{item._id}}</td>
+                        <td>{{item.firstName}} {{item.lastName}}</td>
+                        <td>{{item.email}}</td>
+                        <td>{{item.mobile}}</td>
+                        <td>{{item.address}}</td>
+                        <td>{{item.state}}</td>
+                        <td>{{item.city}}</td>
+                        <td>{{item.pinno}}</td>
+                        <td>{{item.updated_at}}</td>
+                        <td><button class="btn btn-primary btn-sm" [routerLink]="['/user/contact-us', item._id]">Edit</button> <button class="btn btn-danger btn-sm" (click)="deleteContact(item._id)">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

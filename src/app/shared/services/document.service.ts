@@ -14,20 +14,17 @@ export class DocumentService {
 
   constructor(private http: HttpClient) { }
 
-  // Get Users
-  getUsers() {
-    //return this.http.get(this.baseURL)
+  getAllDocument() {
+      return this.http.get<any[]>(`${environment.apiUrl}/documents/list`);
   }
 
   // Create User
-  addUser(data:any, profileImage: File): Observable<any> {
+  addDocument(data:any, profileImage: File): Observable<any> {
     var formData: any = new FormData();
     formData.append("name", data.name);
     formData.append("price", data.price);
     formData.append("avatar", profileImage);
-
     console.log(formData)
-
     return this.http.post<Documentdata>(`${environment.apiUrl}/documents/add`, formData, {
       reportProgress: true,
       observe: 'events'

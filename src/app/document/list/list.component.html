@@ -1,0 +1,32 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col pl-0 pt-2 pb-2">
+            <h5 class="page-titel">Document List</h5>
+        </div>
+        <div class="col pr-0 pt-2 pb-2 text-right">
+            <button type="button" routerLink="/document/add" class="btn btn-primary btn-sm">Add Document</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 white-bg p-0">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Imges</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of documentList">
+                        <td>{{item._id}}</td>
+                        <td>{{item.name}}</td>
+                        <td><img width="40" height="40" src="{{item.avatar}}"></td>
+                        <td><button class="btn btn-primary btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
