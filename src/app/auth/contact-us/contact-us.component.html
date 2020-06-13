@@ -71,6 +71,23 @@
         </div>
         <div class="col-5 p-2">
             <div class="white-bg p-3">
+                <!-- <div class="progress form-group" *ngIf="documentService.percentDone">
+                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                      [style.width.%]="documentService.percentDone">
+                    </div>
+                  </div> -->
+                
+                  <!-- Image Preview -->
+                  <div class="form-group" style="max-width: 200px;">
+                    <div class="preview" *ngIf="preview && preview !== null">
+                      <img style="max-width: 200px; width: 100%;" [src]="preview" [alt]="contactForm.value.name">
+                    </div>
+                  </div>
+                
+                  <!-- File Input -->
+                  <div class="form-group">
+                    <input type="file" (change)="uploadFile($event)">
+                  </div>
             </div>
         </div>
     </div>

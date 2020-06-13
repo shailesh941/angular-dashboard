@@ -9,11 +9,13 @@ import { SharedModule } from '../shared/shared.module';
 import { AuthenticationService } from '../shared/services/authentication.service';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ContactListComponent } from './contact-list/contact-list.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 
 @NgModule({
-  declarations: [LoginComponent, SignUpComponent, ContactUsComponent, ContactListComponent],
+  declarations: [LoginComponent, SignUpComponent, ContactUsComponent, ContactListComponent, ResetPasswordComponent, ForgotPasswordComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,

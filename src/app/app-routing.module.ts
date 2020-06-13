@@ -24,7 +24,7 @@ const routes: Routes = [
     loadChildren: './document/document.module#DocumentModule', 
     canActivate:[AuthGuard]
   },
-  { path: '',   redirectTo: '/user/login', pathMatch: 'full' }
+  //{ path: '',   redirectTo: '/dashboard', pathMatch: 'full' }
 ];
 
 @NgModule({

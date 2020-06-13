@@ -27,6 +27,18 @@ export class UserService {
         console.log('Servicedat', data)
         return this.http.post(`${environment.apiUrl}/products/add`, data);
     }
+
+    requestReset(data): Observable<any> {
+        return this.http.post(`${environment.apiUrl}/user/forgot_password`, data);
+    }
+    
+    newPassword(data): Observable<any> {
+        return this.http.post(`${environment.apiUrl}/new-password`, data);
+    }
+    
+    ValidPasswordToken(data): Observable<any> {
+        return this.http.post(`${environment.apiUrl}/valid-password-token`, data);
+    }
     
 
 

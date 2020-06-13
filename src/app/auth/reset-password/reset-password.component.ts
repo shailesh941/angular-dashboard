@@ -5,36 +5,56 @@ import { first } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-reset-password',
+  templateUrl: './reset-password.component.html',
+  styleUrls: ['./reset-password.component.css']
 })
-export class LoginComponent implements OnInit {
+export class ResetPasswordComponent implements OnInit {
+
     loginForm: FormGroup;
     loading = false;
     submitted = false;
     returnUrl: string;
     error = '';
+    resetToken: null;
+    CurrentState: any;
 
   constructor(
       private formBuilder: FormBuilder,
       private route: ActivatedRoute,
       private router: Router,
-      private authenticationService: AuthenticationService) {}
+      private authenticationService: AuthenticationService) {
+        this.route.params.subscribe(params => {
+          this.resetToken = params.token;
+          console.log(this.resetToken);
+        });
+      }
 
   ngOnInit() {
-
-        ///localStorage.removeItem('currentUser');
-        this.loginForm = this.formBuilder.group({
-            email: ['', Validators.required],
-            password: ['', Validators.required]
-        });
-
-        // reset login status
         //this.authenticationService.logout();
+        //localStorage.removeItem('currentUser');
+        this.loginForm = this.formBuilder.group({
+          newPassword: ['', Validators.required],
+          verifyPassword: ['', Validators.required],
+          token: [this.resetToken, Validators.required]
+        });
+        // reset login status
+       // this.authenticationService.logout();
         // get return url from route parameters or default to '/'
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
+        //this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
   }
+
+  // VerifyToken() {
+  //   this.authenticationService.ValidPasswordToken({ resettoken: this.resetToken }).subscribe(
+  //     data => {
+  //       this.CurrentState = 'Verified';
+  //     },
+  //     err => {
+  //       this.CurrentState = 'NotVerified';
+  //     }
+  //   );
+  // }
+
 
     // convenience getter for easy access to form fields
     get f() { return this.loginForm.controls; }
@@ -46,18 +66,17 @@ export class LoginComponent implements OnInit {
             return;
         }
         this.loading = true;
-        this.authenticationService.login(this.loginForm.value)
+        this.authenticationService.newPassword(this.loginForm.value)
             .pipe(first())
             .subscribe(
                 data => {
-                    this.router.navigate([this.returnUrl]);
+                    //this.router.navigate([this.returnUrl]);
                 },
                 error => {
                     this.error = error;
                     this.loading = false;
                 });
     }
-
 
 
 }

@@ -20,6 +20,8 @@ export class SignUpComponent implements OnInit {
     public userService:UserService,
     private authService: AuthenticationService) {
   }
+
+
   ngOnInit() {
     this.form = this.fb.group({
       firstName:[null, Validators.required],
@@ -31,6 +33,8 @@ export class SignUpComponent implements OnInit {
     },{validator: this.MustMatch('password', 'confirmPassword')});
 
   }
+
+  
   get f() { return this.form.controls; }
 
   onSubmit() {
