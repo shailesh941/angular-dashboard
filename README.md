@@ -1,4 +1,4 @@
-# AngularDashboard
+# Angular Admin View
 
 ![alt text](https://github.com/shailesh941/angular-dashboard/blob/master/view-img.jpg?raw=true)
 
