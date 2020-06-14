@@ -19,6 +19,7 @@ export class ProductService {
         var formData: any = new FormData();
         formData.append("product_code", data.product_code);
         formData.append("product_name", data.product_name);
+        formData.append("product_cat", data.product_cat);
         formData.append("product_price", data.product_price);
         formData.append("product_dicripaton", data.product_dicripaton);
         formData.append("product_imges", profileImage);

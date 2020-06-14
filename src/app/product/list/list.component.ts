@@ -11,13 +11,19 @@ export class ListComponent implements OnInit {
 
   productList:any;
   filterdata ={
-    product_name:'Herry Pottar',
+    product_cat:'',
+
   }
 
   constructor(private router: Router,
     public productService:ProductService,) { }
 
   ngOnInit() {
+    this.getUserData();
+  }
+  filterMethod(event){
+    this.filterdata.product_cat = event.target.value;
+    console.log(event.target.value)
     this.getUserData();
   }
 

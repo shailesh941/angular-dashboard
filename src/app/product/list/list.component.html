@@ -4,7 +4,15 @@
         <div class="col pl-0 pt-2 pb-2">
             <h5 class="page-titel">Product List</h5>
         </div>
-        <div class="col pr-0 pt-2 pb-2 text-right">
+        <div class="col-3 pt-2 pb-2">
+            <select class="form-control form-control-sm" (change)="filterMethod($event)">
+                <option value="">Select All</option>
+                <option value="1">Action</option>
+                <option value="2">Romantic</option>
+                <option value="3">Horror</option>
+            </select>
+        </div>
+        <div class="col-2 pr-0 pt-2 pb-2 text-right">
             <button type="button" routerLink="/product/add" class="btn btn-primary btn-sm">Add Product</button>
         </div>
     </div>
@@ -31,7 +39,7 @@
                         <td>{{item.product_price}}</td>
                         <td>{{item.product_dicripaton}}</td>
                         <td><img width="40" height="40" src="{{item.product_imges}}"></td>
-                        <td>{{item.updated_at}}</td>
+                        <td>{{item.updated_at | date:'dd/MM/yyyy'}}</td>
                         <td>
                             <button class="btn btn-primary btn-sm" [routerLink]="['/product/edit', item._id]">Edit</button>
                             <button class="btn btn-danger btn-sm ml-3" (click)="deleteContact(item._id)">Delete</button>

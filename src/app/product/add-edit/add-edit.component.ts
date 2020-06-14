@@ -41,6 +41,7 @@ export class AddEditComponent implements OnInit {
       _id:[null],
       product_code:[null, Validators.required],
       product_name:[null, Validators.required],
+      product_cat:[null, Validators.required],
       product_price:[null, Validators.required],
       product_dicripaton: [null],
       product_imges: [null]

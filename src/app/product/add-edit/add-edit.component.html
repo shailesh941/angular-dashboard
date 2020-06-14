@@ -44,6 +44,16 @@
                         </div>
                         <div class="col-6 p-2">
                             <div class="form-group">
+                                <label>product_cat</label>
+                                <select class="form-control" formControlName="product_cat">
+                                    <option value="1">Action</option>
+                                    <option value="2">Romantic</option>
+                                    <option value="3">Horror</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-6 p-2">
+                            <div class="form-group">
                                 <label>product_name</label>
                                 <input  class="form-control" type="text" [ngClass]="{ 'is-invalid': submitted && f.product_name.errors }" placeholder="product_code" formControlName="product_name" />
                                 <div *ngIf="submitted && f.product_name.errors" class="invalid-feedback">
