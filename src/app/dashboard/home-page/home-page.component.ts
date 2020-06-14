@@ -13,6 +13,7 @@ import { ProductService } from 'src/app/shared/services/product.service';
 export class HomePageComponent implements OnInit {
   users:any;
   // Bar Chart Start
+  filter:any;
   barChartOptions: ChartOptions = {
     responsive: true,
     scales: { xAxes: [{}], yAxes: [{}] },
@@ -148,7 +149,7 @@ export class HomePageComponent implements OnInit {
   }
 
   getUserData(){
-    this.productService.getAllProduct().subscribe(users => { 
+    this.productService.getAllProduct(this.filter).subscribe(users => { 
       this.users = users;
       console.log(this.users); 
   });

@@ -38,6 +38,7 @@ export class AddEditComponent implements OnInit {
 
 
     this.productForm = this.fb.group({
+      _id:[null],
       product_code:[null, Validators.required],
       product_name:[null, Validators.required],
       product_price:[null, Validators.required],
@@ -84,14 +85,13 @@ export class AddEditComponent implements OnInit {
     if (this.productForm.invalid) {
         return;
     }
+    let formdata = this.productForm.value
     if(this.productId != null){
-      console.log(this.productId);
-      let formdata = this.productForm.value
-      this.productService.updateProduct(this.productId, formdata).subscribe(res => {
+      this.productService.updateProduct(formdata, this.productForm.value.product_imges).subscribe(res => {
         console.log(res);
+        this.router.navigate(['product/list'])
       })
     }else{
-      let formdata = this.productForm.value
       this.productService.addProduct(formdata, this.productForm.value.product_imges).subscribe((event: HttpEvent<any>) => {
         switch (event.type) {
           case HttpEventType.Sent:

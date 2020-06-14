@@ -11,8 +11,8 @@ export class ProductService {
 
     constructor(private http: HttpClient) { }
 
-    getAllProduct() {
-        return this.http.get<any[]>(`${environment.apiUrl}/products/list`);
+    getAllProduct(filter) {
+        return this.http.post<any[]>(`${environment.apiUrl}/products/list`, filter);
     }
 
     addProduct(data:any, profileImage: File): Observable<any> {
@@ -35,16 +35,20 @@ export class ProductService {
       return this.http.get<any[]>(`${environment.apiUrl}/products/${id}`);
     }
 
-    updateProduct(userid:any, data:any) {
-      // let formData: any = new FormData();
-      // formData.append("product_code", data.product_code);
-      // formData.append("product_name", data.product_name);
-      // formData.append("product_price", data.product_price);
-      // formData.append("product_dicripaton", data.product_dicripaton);
-      // formData.append("product_imges", profileImage);
-        //return this.http.put(`/users/` + item.id, item);
-      return this.http.put(`${environment.apiUrl}/products/update/${userid}`, data) 
+    updateProduct(data:any, profileImage: File) {
+      let formData: any = new FormData();
+      formData.append("product_code", data.product_code);
+      formData.append("product_name", data.product_name);
+      formData.append("product_price", data.product_price);
+      formData.append("product_dicripaton", data.product_dicripaton);
+      formData.append("product_imges", profileImage);
+      console.log(formData);
+      return this.http.put(`${environment.apiUrl}/products/update/${data._id}`, formData) 
 
+    }
+    
+    deleteContact(id) {
+      return this.http.delete(`${environment.apiUrl}/products/delete/${id}`);
     }
 
 

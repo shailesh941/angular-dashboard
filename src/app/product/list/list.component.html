@@ -32,7 +32,10 @@
                         <td>{{item.product_dicripaton}}</td>
                         <td><img width="40" height="40" src="{{item.product_imges}}"></td>
                         <td>{{item.updated_at}}</td>
-                        <td><button [routerLink]="['/product/edit', item._id]">Edit</button> <button>Delete</button></td>
+                        <td>
+                            <button class="btn btn-primary btn-sm" [routerLink]="['/product/edit', item._id]">Edit</button>
+                            <button class="btn btn-danger btn-sm ml-3" (click)="deleteContact(item._id)">Delete</button>
+                         </td>
                     </tr>
                 </tbody>
             </table>

@@ -1,5 +1,7 @@
 # AngularDashboard
 
+![alt text](https://github.com/shailesh941/angular-dashboard/blob/master/view-img.jpg?raw=true)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.2.
 
 ## Development server

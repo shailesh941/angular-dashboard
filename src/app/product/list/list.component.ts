@@ -10,6 +10,9 @@ import { ProductService } from 'src/app/shared/services/product.service';
 export class ListComponent implements OnInit {
 
   productList:any;
+  filterdata ={
+    product_name:'Herry Pottar',
+  }
 
   constructor(private router: Router,
     public productService:ProductService,) { }
@@ -19,10 +22,17 @@ export class ListComponent implements OnInit {
   }
 
   getUserData(){
-    this.productService.getAllProduct().subscribe(product => { 
+    this.productService.getAllProduct(this.filterdata).subscribe(product => { 
       this.productList = product;
       console.log(this.productList);
     });
+  }
+
+  deleteContact(id){
+    this.productService.deleteContact(id).subscribe(res => {
+      this.getUserData();
+    });
+
   }
 
 }
