@@ -12,6 +12,7 @@ export class ListComponent implements OnInit {
   productList:any;
   filterdata ={
     product_cat:'',
+    page:1,
 
   }
 
@@ -24,6 +25,10 @@ export class ListComponent implements OnInit {
   filterMethod(event){
     this.filterdata.product_cat = event.target.value;
     console.log(event.target.value)
+    this.getUserData();
+  }
+  pageSelect(event){
+    this.filterdata.page = event;
     this.getUserData();
   }
 
