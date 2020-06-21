@@ -34,6 +34,7 @@ export class ListComponent implements OnInit {
 
   getUserData(){
     this.productService.getAllProduct(this.filterdata).subscribe(product => { 
+      console.log('Dat',product);
       this.productList = product;
       console.log(this.productList);
     });
