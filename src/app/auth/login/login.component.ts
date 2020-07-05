@@ -26,8 +26,8 @@ export class LoginComponent implements OnInit {
 
         ///localStorage.removeItem('currentUser');
         this.loginForm = this.formBuilder.group({
-            email: ['', Validators.required],
-            password: ['', Validators.required]
+            email: ['shailesh941@yahoo.com', Validators.required],
+            password: ['Pass123@', Validators.required]
         });
 
         // reset login status
